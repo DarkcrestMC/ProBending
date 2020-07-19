@@ -1,0 +1,37 @@
+name: ProBending
+main: com.celtican.ProBending.ProBending
+version: 1.0.2
+api-version: 1.13
+author: Celtican
+depend: [ProjectKorra]
+permissions:
+  probending.probender:
+    default: op
+    description: Access to pro bending moves.
+    children:
+      bending.ability.ProFireBlast: true
+      bending.ability.ProFireDodge: true
+      bending.ability.ProFireShield: true
+      bending.ability.ProEarthBlast: true
+      bending.ability.ProEarthDodge: true
+      bending.ability.ProEarthShield: true
+      bending.ability.ProWaterBlast: true
+      bending.ability.ProWaterDodge: true
+      bending.ability.ProWaterShield: true
+  probending.teams:
+    default: true
+    description: Access to the /probendingteam command.
+#  probending.countdown:
+#    default: op
+#    description: Access to the /countdown command.
+commands:
+  probendingteam:
+    aliases: [pbt, probendingteams, probendingteam, proteams, proteam, bendingteams, bteam, bteams, probending, pb, pbending, bendingteam]
+    description: Allows you to create and manage a pro bending team.
+    usage: /<command>
+    permission: probending.teams
+#  countdown:
+#    aliases: [cd]
+#    description: Starts a countdown to 0 visible to all connected players.
+#    usage: /countdown <seconds>
+#    permission: probending.countdown
