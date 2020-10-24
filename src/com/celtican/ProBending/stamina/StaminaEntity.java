@@ -13,7 +13,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -40,7 +39,7 @@ public class StaminaEntity {
         }
     }
 
-    public void inflictDamage(@NotNull Ability ability, double damage) {
+    public void inflictDamage(Ability ability, double damage) {
         if (damage == 0) {
             // if health is max, deal 1 then heal 1. otherwise, heal 1 then deal 1.
             // if the entity's max health is 1, it will die. not sure what I can do about that
@@ -57,11 +56,11 @@ public class StaminaEntity {
         } else
             DamageHandler.damageEntity(entity, damage + damage * getDamageMultiplier(), ability);
     }
-    public void inflictKnockback(@NotNull Ability ability, double amount, Vector dir) {
+    public void inflictKnockback(Ability ability, double amount, Vector dir) {
 //        Vector velocity = dir.multiply(amount * ProBending.getStaminaHandler().getKnockbackMultiplier())
         GeneralMethods.setVelocity(entity, dir.multiply(amount + amount * getKnockbackMultiplier()));
     }
-    public void inflictStamina(@NotNull Ability ability, float amount) {
+    public void inflictStamina(Ability ability, float amount) {
         if (ability.getPlayer() == entity) {
             ticksUntilBlastReset = 20;
             blastUseCount++;
